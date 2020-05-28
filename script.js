@@ -6,8 +6,7 @@ function runCountDown(){
     document.querySelector('#counting').textContent= countDown;
     if(countDown==0){
         startGame();
-    // }else if($0)
-    // setTimeout(runCountDown,100)
+        
     }
     else{
     setTimeout(runCountDown, 1000)}
@@ -66,6 +65,7 @@ function resetState(){
 }
 
 function selectAnswer(e){
+
     const selectedButton= e.target  
     const correct= selectedButton.dataset.correct
     setStatusClass(document.body, correct)
@@ -77,8 +77,14 @@ function selectAnswer(e){
     }else{
         startButton.innerText= 'restart'
         startButton.classList.remove('hide')
+        setTimeout(runCountDown, 50)
+        
+        
     }
-}
+   
+
+    }
+
 
 function setStatusClass(element,correct){
     clearStatusClass(element)
@@ -99,7 +105,7 @@ const questions = [
         question: ' What is JavaScript?',
         answers:[
             {text:'JavaScript is a client-side as well as server side scripting language that can be inserted into HTML pages and is understood by web browsers. JavaScript is also an Object based Programming language', correct:true},
-            {text:'A drink',correct:false}
+            {text:'A drink', correct:false}
         ]
     },
     {
